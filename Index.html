@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم قدر ضغط | التجربة الأصيلة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Reem+Kufi:wght@400;700&display=swap');
+        
+        :root {
+            --brand-orange: #f58220;
+            --brand-dark: #1a1a1a;
+            --brand-light: #ffffff;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #fff;
+        }
+
+        .font-kufi { font-family: 'Reem Kufi', sans-serif; }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
+                        url('xxxx.img');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .menu-category-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+        .menu-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--brand-orange);
+        }
+
+        .menu-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            transition: all 0.3s ease;
+        }
+        .menu-item-row:hover {
+            border-bottom-color: var(--brand-orange);
+            transform: translateX(-5px);
+        }
+
+        .dots-filler {
+            flex-grow: 1;
+            border-bottom: 1px dotted #ccc;
+            margin: 0 10px;
+            height: 1px;
+        }
+
+        .btn-primary {
+            background: var(--brand-orange);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 130, 32, 0.4);
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <nav class="fixed top-0 w-full z-[100] transition-all duration-300 px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="flex items-center gap-3">
+            <img src="xxx.img" alt="شعار قدر ضغط" class="w-11 h-11 object-contain">
+            <span class="font-kufi font-bold text-2xl tracking-tighter text-gray-800">قدر ضغط</span>
+        </div>
+        <div class="hidden md:flex gap-8 font-semibold text-gray-600">
+            <a href="#home" class="hover:text-orange-500">الرئيسية</a>
+            <a href="#menu" class="hover:text-orange-500">المنيو</a>
+            <a href="#location" class="hover:text-orange-500">الموقع</a>
+        </div>
+        <a href="tel:0533771038" class="btn-primary px-6 py-2 rounded-full font-bold flex items-center gap-2">
+            <i class="fas fa-phone-alt"></i>
+            <span class="hidden sm:inline">اطلب الآن</span>
+        </a>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="hero-section text-white text-center px-4">
+        <div class="max-w-3xl animate__animated animate__fadeIn">
+            <h2 class="text-orange-500 font-kufi text-xl md:text-2xl mb-4 font-bold tracking-widest uppercase">مرحباً بكم في قدر ضغط</h2>
+            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-tight">طعم يجمعنا <br><span class="text-orange-500 italic">بكل حب</span></h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto font-light">
+                نحن لا نطبخ الطعام فقط، نحن نصنع ذكريات المضغوط السعودي الأصيل في قلب مدينة جدة.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#menu" class="btn-primary px-10 py-4 rounded-full text-lg font-bold">استكشف المنيو</a>
+                <a href="#location" class="bg-transparent border-2 border-white/30 backdrop-blur-sm px-10 py-4 rounded-full text-lg font-bold hover:bg-white hover:text-black transition">موقعنا</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-white/50"></i>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-4">قائمة الطعام</h2>
+                <p class="text-gray-500">نختار أجود المكونات لنقدم لك تجربة لا تُنسى</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
+                
+                <!-- الأطباق الرئيسية -->
+                <div class="animate__animated animate__fadeInUp">
+                    <h3 class="menu-category-title text-2xl font-black text-gray-800 font-kufi">الأطباق الرئيسية</h3>
+                    <div class="space-y-2">
+                        <div class="menu-item-row">
+                            <div class="flex flex-col">
+                                <span class="font-bold text-lg">نصف دجاجة مع الأرز</span>
+                                <span class="text-gray-400 text-xs">Half Chicken with Rice (1350 Cal)</span>
+                            </div>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">24 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <div class="flex flex-col">
+                                <span class="font-bold text-lg">ربع دجاجة مع الأرز</span>
+                                <span class="text-gray-400 text-xs">Quarter Chicken with Rice (770 Cal)</span>
+                            </div>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">13 ريال</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- السلطات -->
+                <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <h3 class="menu-category-title text-2xl font-black text-gray-800 font-kufi">السلطات والمقبلات</h3>
+                    <div class="space-y-2">
+                        <div class="menu-item-row">
+                            <span class="font-bold">سلطة قدر ضغط</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">5 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <span class="font-bold">سلطة طحينية</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">5 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <span class="font-bold">سلطة زبادي</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">6 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <span class="font-bold">سلطة لبنة</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">8 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <span class="font-bold">بامية</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">8 ريال</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- المشروبات -->
+                <div class="animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <h3 class="menu-category-title text-2xl font-black text-gray-800 font-kufi">المشروبات</h3>
+                    <div class="space-y-2">
+                        <div class="menu-item-row">
+                            <span class="font-bold">مشروب غازي</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">3 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <span class="font-bold">لبن طازج</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">2.5 ريال</span>
+                        </div>
+                        <div class="menu-item-row">
+                            <span class="font-bold">ماء</span>
+                            <div class="dots-filler"></div>
+                            <span class="font-black text-orange-600">1 ريال</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QR Code -->
+                <div class="bg-orange-50 p-8 rounded-3xl border border-orange-100 flex flex-col justify-center items-center text-center animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+                    <img src="xxxxx.img" alt="QR Code" class="w-40 h-40 mx-auto mb-4 rounded-2xl shadow-md">
+                    <h4 class="font-black text-xl mb-2">امسح الكود للمنيو</h4>
+                    <p class="text-gray-500 text-sm">يمكنك دائماً الوصول للمنيو الرقمي أثناء تواجدك في المطعم</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 bg-gray-950 text-white overflow-hidden relative">
+        <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between relative z-10">
+            <div class="text-center md:text-right mb-8 md:mb-0">
+                <h2 class="text-3xl font-black mb-2">جائع؟ نحن بانتظارك</h2>
+                <p class="text-gray-400">نصلك أينما كنت عبر تطبيقات التوصيل</p>
+            </div>
+            <div class="flex gap-4">
+                <div class="bg-white/10 px-6 py-3 rounded-2xl backdrop-blur-md flex items-center gap-3">
+                    <span class="font-bold">HungerStation</span>
+                </div>
+                <div class="bg-white/10 px-6 py-3 rounded-2xl backdrop-blur-md flex items-center gap-3">
+                    <span class="font-bold">Jahez</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location -->
+    <section id="location" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white h-[450px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3711.597157628864!2d39.266!3d21.492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d25d19e0b8e9%3A0xc3b79f8484a86e92!2z2YXYt9i52YUg2YLYr9ixINi22YHYtA!5e0!3m2!1sar!2ssa!4v1700000000000" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 space-y-8">
+                <h2 class="text-4xl font-black">تفضل بزيارتنا</h2>
+                <p class="text-gray-600 leading-relaxed">نتواجد في حي أبرق الرغامة بمدينة جدة.</p>
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">حي أبرق الرغامة، جدة 22262</p>
+                            <a href="https://maps.app.goo.gl/T6ABy7kdcF1nxzgj9" target="_blank" class="text-orange-500 hover:underline">عرض على خرائط جوجل</a>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 text-orange-500 flex items-center justify-center">
+                            <i class="fas fa-clock text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-gray-800">11:00 ص – 12:00 ص</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="tel:0533771038" class="inline-flex items-center gap-3 text-2xl font-black text-gray-900 hover:text-orange-500 transition">
+                    <i class="fas fa-phone-alt p-3 bg-orange-500 text-white rounded-full"></i>
+                    0533771038
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 px-6 border-t border-gray-100">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-3">
+                <img src="xxx.img" alt="قدر ضغط" class="w-9 h-9 object-contain">
+                <span class="font-kufi font-bold text-xl tracking-tighter text-gray-800">قدر ضغط</span>
+            </div>
+            
+            <div class="flex gap-6 text-gray-500">
+                <a href="https://www.instagram.com/qedr.daght" target="_blank" class="hover:text-orange-500 transition text-3xl"><i class="fab fa-instagram"></i></a>
+                <a href="https://snapchat.com/t/aQQUyHWy" target="_blank" class="hover:text-orange-500 transition text-3xl"><i class="fab fa-snapchat"></i></a>
+                <a href="https://www.tiktok.com/@qedr.daght" target="_blank" class="hover:text-orange-500 transition text-3xl"><i class="fab fa-tiktok"></i></a>
+            </div>
+
+            <p class="text-gray-400 text-sm">© 2026 مطعم قدر ضغط. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Order Button -->
+    <div class="md:hidden fixed bottom-6 left-6 right-6 z-50">
+        <a href="tel:0533771038" class="btn-primary w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-lg font-bold">
+            <i class="fas fa-phone-alt"></i> اطلب الآن هاتفياً
+        </a>
+    </div>
+
+</body>
+</html>
