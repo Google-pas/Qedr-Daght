@@ -20,6 +20,7 @@
             font-family: 'Cairo', sans-serif;
             scroll-behavior: smooth;
             background-color: #fff;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
 
         .font-kufi { font-family: 'Reem Kufi', sans-serif; }
@@ -82,25 +83,133 @@
             transform: scale(1.05);
             filter: brightness(1.1);
         }
+
+        /* ==================== NAV LAYOUT ==================== */
+        nav {
+            display: grid !important;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+        }
+        .nav-left  { display: flex; align-items: center; justify-content: flex-start; }
+        .nav-center{ display: flex; align-items: center; justify-content: center; }
+        .nav-right { display: flex; align-items: center; justify-content: flex-end; }
+
+        /* ==================== NIGHT MODE ==================== */
+        /* Shared style for both icon buttons in the nav */
+        #night-mode-btn, #phone-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(245, 130, 32, 0.5);
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            text-decoration: none;
+            transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        #night-mode-btn:hover, #phone-btn:hover {
+            background: rgba(245, 130, 32, 0.09);
+            border-color: var(--brand-orange);
+            box-shadow: 0 0 14px rgba(245, 130, 32, 0.3);
+            color: var(--brand-orange);
+        }
+        #night-mode-btn .icon-moon,
+        #night-mode-btn .icon-sun { transition: opacity 0.3s ease, transform 0.3s ease; position: absolute; }
+        #night-mode-btn .icon-sun  { opacity: 0; transform: rotate(90deg) scale(0.6); }
+        #night-mode-btn .icon-moon { opacity: 1; transform: rotate(0deg) scale(1); }
+
+        /* Night mode active styles */
+        body.night-mode {
+            background-color: #111111;
+            color: #e5e5e5;
+        }
+        body.night-mode #night-mode-btn,
+        body.night-mode #phone-btn {
+            background: rgba(245, 130, 32, 0.1);
+            color: #f58220;
+            border-color: var(--brand-orange);
+            box-shadow: 0 0 14px rgba(245, 130, 32, 0.35);
+        }
+        body.night-mode #night-mode-btn .icon-sun  { opacity: 1; transform: rotate(0deg) scale(1); }
+        body.night-mode #night-mode-btn .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0.6); }
+
+        /* Nav */
+        body.night-mode nav {
+            background: rgba(17, 17, 17, 0.92) !important;
+            border-bottom: 1px solid rgba(245, 130, 32, 0.15);
+        }
+        body.night-mode nav span,
+        body.night-mode nav a:not(.btn-primary) { color: #d1d1d1; }
+        body.night-mode nav a:not(.btn-primary):hover { color: #f58220; }
+
+        /* Menu section */
+        body.night-mode #menu { background-color: #111111; }
+        body.night-mode #menu h2 { color: #f0f0f0; }
+        body.night-mode #menu p  { color: #888; }
+        body.night-mode .menu-category-title { color: #f0f0f0; }
+        body.night-mode .menu-item-row { border-bottom-color: rgba(255,255,255,0.08); }
+        body.night-mode .menu-item-row span.font-bold,
+        body.night-mode .menu-item-row span:not(.text-orange-600) { color: #e0e0e0; }
+        body.night-mode .dots-filler { border-bottom-color: rgba(255,255,255,0.15); }
+
+        /* QR card */
+        body.night-mode .bg-orange-50 {
+            background-color: #1c1c1c !important;
+            border-color: rgba(245, 130, 32, 0.25) !important;
+        }
+        body.night-mode .bg-orange-50 h4 { color: #f0f0f0; }
+        body.night-mode .bg-orange-50 p  { color: #888; }
+
+        /* Location section */
+        body.night-mode #location { background-color: #161616; }
+        body.night-mode #location h2 { color: #f0f0f0; }
+        body.night-mode #location p  { color: #999; }
+        body.night-mode #location .font-bold { color: #e0e0e0; }
+        body.night-mode #location a.text-gray-900 { color: #e0e0e0 !important; }
+
+        /* Footer */
+        body.night-mode footer {
+            background-color: #0e0e0e !important;
+            border-top-color: rgba(255,255,255,0.07) !important;
+        }
+        body.night-mode footer span { color: #d0d0d0; }
+        body.night-mode footer p   { color: #555; }
+
+        /* Mobile order button strip */
+        body.night-mode .md\:hidden.fixed { background: transparent; }
     </style>
 </head>
 <body>
 
     <!-- Header / Nav -->
-    <nav class="fixed top-0 w-full z-[100] transition-all duration-300 px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur-md shadow-sm">
-        <div class="flex items-center gap-3">
+    <nav class="fixed top-0 w-full z-[100] transition-all duration-300 px-6 py-4 bg-white/90 backdrop-blur-md shadow-sm">
+        <!-- Left: Night mode button -->
+        <div class="nav-left">
+            <button id="night-mode-btn" aria-label="تبديل الوضع الليلي" title="الوضع الليلي">
+                <i class="fas fa-moon icon-moon"></i>
+                <i class="fas fa-sun icon-sun"></i>
+            </button>
+        </div>
+
+        <!-- Center: Logo + Name -->
+        <div class="nav-center gap-3">
             <img src="xxx.img" alt="شعار قدر ضغط" class="w-11 h-11 object-contain">
             <span class="font-kufi font-bold text-2xl tracking-tighter text-gray-800">قدر ضغط</span>
         </div>
-        <div class="hidden md:flex gap-8 font-semibold text-gray-600">
-            <a href="#home" class="hover:text-orange-500">الرئيسية</a>
-            <a href="#menu" class="hover:text-orange-500">المنيو</a>
-            <a href="#location" class="hover:text-orange-500">الموقع</a>
+
+        <!-- Right: Phone icon button -->
+        <div class="nav-right">
+            <a href="tel:0533771038" id="phone-btn" aria-label="اتصل بنا" title="0533771038">
+                <i class="fas fa-phone-alt"></i>
+            </a>
         </div>
-        <a href="tel:0533771038" class="btn-primary px-6 py-2 rounded-full font-bold flex items-center gap-2">
-            <i class="fas fa-phone-alt"></i>
-            <span class="hidden sm:inline">اطلب الآن</span>
-        </a>
     </nav>
 
     <!-- Hero -->
@@ -239,14 +348,8 @@
 
     <!-- Location -->
     <section id="location" class="py-24 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="order-2 lg:order-1">
-                <div class="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white h-[450px]">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3711.597157628864!2d39.266!3d21.492!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d25d19e0b8e9%3A0xc3b79f8484a86e92!2z2YXYt9i52YUg2YLYr9ixINi22YHYtA!5e0!3m2!1sar!2ssa!4v1700000000000" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-            <div class="order-1 lg:order-2 space-y-8">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-1 gap-16 items-center">
+            <div class="space-y-8">
                 <h2 class="text-4xl font-black">تفضل بزيارتنا</h2>
                 <p class="text-gray-600 leading-relaxed">نتواجد في حي أبرق الرغامة بمدينة جدة.</p>
                 
@@ -303,6 +406,13 @@
             <i class="fas fa-phone-alt"></i> اطلب الآن هاتفياً
         </a>
     </div>
+
+    <script>
+        const btn = document.getElementById('night-mode-btn');
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('night-mode');
+        });
+    </script>
 
 </body>
 </html>
